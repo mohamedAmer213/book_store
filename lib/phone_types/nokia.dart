@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Iphone extends StatefulWidget {
+class Nokia extends StatefulWidget {
   @override
-  _IphoneState createState() => _IphoneState();
+  _NokiaState createState() => _NokiaState();
 }
 
-class _IphoneState extends State<Iphone> {
+class _NokiaState extends State<Nokia> {
   String cameraSize = "5 ميغابيكسل";
   String cpuSize = "ثماني النواة";
   String battery = "1,715 mAh";
@@ -22,10 +22,7 @@ class _IphoneState extends State<Iphone> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            "Iphone",
-            style: TextStyle(color: Colors.black87),
-          ),
+          title: Text("Nokia",style: TextStyle(color: Colors.black87),),
           centerTitle: true,
         ),
         body: Column(
@@ -41,53 +38,58 @@ class _IphoneState extends State<Iphone> {
     );
   }
 
-  Card _buildSinglePhoneCard(String image) {
-    return Card(
-      color: Color(0xffBE8532),
-      //color: Colors.white60,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(40), bottomLeft: Radius.circular(10)),
-      ),
-      elevation: 5,
-      shadowColor: Colors.deepOrange,
-      child: Row(children: <Widget>[
-        Expanded(
-          flex: 1,
-          child: Container(
-            margin: EdgeInsets.only(left: 8),
-            height: 100,
-            width: 100,
-            decoration: BoxDecoration(
-                border: Border.all(color: Colors.deepOrange),
-                image: DecorationImage(
-                    image: ExactAssetImage(
-                      image,
-                    ),
-                    fit: BoxFit.cover)),
+  Widget _buildSinglePhoneCard(String image) {
+    return InkWell(
+      onTap: (){
+        Navigator.of(context).pushNamed('nokia_details');
+      },
+      child: Card(
+        color: Color(0xff515C68),
+        //color: Colors.white60,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(40), bottomLeft: Radius.circular(10)),
+        ),
+        elevation: 5,
+        shadowColor: Colors.deepOrange,
+        child: Row(children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: Container(
+              margin: EdgeInsets.only(left: 8),
+              height: 100,
+              width: 100,
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.deepOrange),
+                  image: DecorationImage(
+                      image: ExactAssetImage(
+                        image,
+                      ),
+                      fit: BoxFit.cover)),
+            ),
           ),
-        ),
-        Expanded(
-          flex: 3,
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                _buildCameraRow(
-                  cameraSize: cameraSize,
-                  cpuSize: cpuSize,
-                ),
-                _buildBatteryRow(
-                  battery: battery,
-                  memory: memory,
-                ),
-                _buildPriceRow(
-                  price: price,
-                  networkStructure: network,
-                ),
-              ]),
-        ),
-      ]),
+          Expanded(
+            flex: 3,
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  _buildCameraRow(
+                    cameraSize: cameraSize,
+                    cpuSize: cpuSize,
+                  ),
+                  _buildBatteryRow(
+                    battery: battery,
+                    memory: memory,
+                  ),
+                  _buildPriceRow(
+                    price: price,
+                    networkStructure: network,
+                  ),
+                ]),
+          ),
+        ]),
+      ),
     );
   }
 

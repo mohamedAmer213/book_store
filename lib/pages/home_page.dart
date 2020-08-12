@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-
+import 'package:phone_store/api_folder/app_api.dart';
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>{
+  //Api api=Api();
   @override
   Widget build(BuildContext context) {
+   // api.fetchingData();
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: AppBar(title: Text("Home"),),
         body: ListView(children: <Widget>[
           _usingCarousel(),
           Container(
@@ -40,14 +41,13 @@ class _HomePageState extends State<HomePage> {
             child: Text("التصنيفات"),
           ),
           Card(
-            elevation: 5,
             shadowColor: Colors.deepOrange,
             child: Container(
               padding: EdgeInsets.all(8),
               height: MediaQuery.of(context).size.width * 0.75,
               child: GridView(
-                  gridDelegate:
-                      SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2),
                   children: <Widget>[
                     _buildGridTile('images/phone1.png', 'Iphone'),
                     _buildGridTile('images/phone2.png', 'Samsung'),
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
       footer: Text(
         title,
         style: TextStyle(
-          color: Colors.black.withOpacity(0.75),
+          color: Colors.red.shade900,
         ),
         textAlign: TextAlign.center,
       ),

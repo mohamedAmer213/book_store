@@ -3,7 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_pro/carousel_pro.dart';
-import '../drawer_components/book_store_drawer.dart';
+import '../app_drawer/book_store_drawer.dart';
 import 'package:phone_store/pages/home_page.dart';
 
 class UserAccountDrawer extends StatefulWidget {
@@ -25,7 +25,7 @@ class _UserAccountDrawerState extends State<UserAccountDrawer> {
         child: Scaffold(
           drawer: BookStoreDrawer(),
           appBar: AppBar(
-            title: Text("Home"),
+            title: Text("Home",),
             centerTitle: true,
             backgroundColor: Colors.red.shade900,
           ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:phone_store/drawer_components/categories.dart';
+import 'package:phone_store/drawer_routing_pages/categories.dart';
 import 'package:phone_store/pages/home_page.dart';
-import 'package:phone_store/drawer_components/settings.dart';
-import 'package:phone_store/drawer_components/sign_out.dart';
-import 'package:phone_store/drawer_components/about_us.dart';
+import 'package:phone_store/drawer_routing_pages/settings.dart';
+import 'package:phone_store/drawer_routing_pages/sign_out.dart';
+import 'package:phone_store/drawer_routing_pages/about_us.dart';
 
 class BookStoreDrawer extends StatefulWidget {
   @override
@@ -20,6 +20,7 @@ class _BookStoreDrawerState extends State<BookStoreDrawer> {
     "حول التطبيق",
     "الاعدادات",
     "تسجيل الخروج",
+    "الاتصال ببيانات وهمية",
   ];
 
   @override
@@ -53,6 +54,9 @@ class _BookStoreDrawerState extends State<BookStoreDrawer> {
             ), () {
           Navigator.of(context).pushNamed('signOut');
         }),
+        _buildListTileDrawerItem(drawerTitles, 5, Icon(Icons.network_wifi), (){
+          Navigator.of(context).pushNamed('api_call');
+        })
       ]),
     );
   }
