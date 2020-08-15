@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:phone_store/api_folder/app_api.dart';
 import 'dart:convert';
+
+import 'package:phone_store/models/post.dart';
 
 class ApiTest extends StatefulWidget {
   @override
@@ -16,7 +19,7 @@ class _ApiTestState extends State<ApiTest> {
       appBar: AppBar(),
       body: ListView(children: <Widget>[
         FutureBuilder(
-          future: api.fetchingData(),
+          future: api.fetchingPost(),
           builder: (context, AsyncSnapshot snapShot) {
             switch (snapShot.connectionState) {
               case ConnectionState.active:
@@ -27,9 +30,13 @@ class _ApiTestState extends State<ApiTest> {
                 return _failed();
               case ConnectionState.done:
                 if (snapShot.hasData) {
+               List<Post> posts=snapShot.data;
+               Post post1=posts[0];
                   return Container(
                     padding: EdgeInsets.all(10),
-                    child: Text(snapShot.data.toString()),
+                  //  child: Text(post1.userId.toString()),
+                    child: Text(post1.body.toString()),
+
                   );
                 }else{
                   return _noData();
@@ -52,7 +59,7 @@ class _ApiTestState extends State<ApiTest> {
       height: MediaQuery.of(context).size.height,
       alignment: Alignment.center,
       child: Text(
-        'No Internet Connection'
+        'We Cannot load your Data..Fix the Error'
       ),
     );
   }

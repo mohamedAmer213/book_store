@@ -8,10 +8,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage>{
-  //Api api=Api();
+  Api api=Api();
   @override
   Widget build(BuildContext context) {
-   // api.fetchingData();
+   api.fetchingData();
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
