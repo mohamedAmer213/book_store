@@ -7,6 +7,7 @@ import 'package:phone_store/drawer_routing_pages/categories.dart';
 import '../app_drawer/book_store_drawer.dart';
 import 'package:phone_store/pages/home_page.dart';
 import 'package:phone_store/search/advanced_search.dart';
+import 'package:phone_store/models/post.dart';
 
 class UserAccountDrawer extends StatefulWidget {
   @override
