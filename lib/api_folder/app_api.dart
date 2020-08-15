@@ -50,9 +50,9 @@ class Api {
       );
       postsList.add(post);
     }
-    for (var item in postsList) {
-      print(item.id);
-    }
+//    for (var item in postsList) {
+//      print(item.id);
+//    }
     return postsList;
   }
   Future<List<Todo>> fetchingTodo() async {
@@ -114,6 +114,37 @@ Future<List<Photo>> fetchingPhoto() async{
       print(item.id);
     }
     return commentsList;
+  }
+
+  Future<List<String>> getCommentRow() async{
+    var listSearch=[];
+    var response=
+    await http.get('https://jsonplaceholder.typicode.com/comments');
+    var jsonBody=jsonDecode(response.body);
+    for(int i=0;i<jsonBody.length;i++){
+      listSearch.add(jsonBody[i]['name']);
+    }
+    print(listSearch);
+  }
+
+  Future<List<String>> getCommentNames() async{
+    List < String > names=[];
+    var response=
+    await http.get('https://jsonplaceholder.typicode.com/comments');
+    var jsonData=jsonDecode(response.body);
+    var data=jsonData;
+    for(var item in data){
+      Comment comment = Comment(
+        postId: item['postId'],
+        id: item['id'],
+        name: item['name'],
+        email: item['email'],
+        body: item['body'],
+      );
+      names.add(comment.id.toString());
+//   print(comment.name);
+    }
+    return names;
   }
 
 

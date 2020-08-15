@@ -11,7 +11,9 @@ class AdvancedSearch extends SearchDelegate<String> {
   List<Widget> buildActions(BuildContext context) {
     return [
       IconButton(
-        onPressed: () {},
+        onPressed: () {
+          query = "";
+        },
         icon: Icon(
           Icons.close,
           color: Colors.orange,
@@ -34,15 +36,19 @@ class AdvancedSearch extends SearchDelegate<String> {
   Widget buildResults(BuildContext context) {
     return ListView(
       children: <Widget>[
-        Container(
-          child: Text('some Results for this app ua_amer'),
-        )
+        ListTile(title: Text(query),)
       ],
     );
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
+//    return ListView(
+//      children: <Widget>[
+//        ListTile(title: Text(query),)
+//      ],
+//    );
+
     return ListView(children: <Widget>[
       FutureBuilder(
         future: api.fetchingPost(),
@@ -57,11 +63,15 @@ class AdvancedSearch extends SearchDelegate<String> {
             case ConnectionState.done:
               if (snapShot.hasData) {
                 List<Post> posts = snapShot.data;
-                Post post1 = posts[0];
-                return Container(
-                  padding: EdgeInsets.all(10),
-                  child: Text(post1.body.toString()),
-                );
+               Post post1=posts[0];
+               return ListTile(
+                 title: Text(post1.title.toString()),
+                 onTap:(){
+                  query="Mohamed Amer and we launched s21 project right now ";
+                   //this is very import to take us to another Method
+                   showResults(context);
+                 }
+               );
               } else {
                 return _noData(
                   context,
@@ -77,6 +87,18 @@ class AdvancedSearch extends SearchDelegate<String> {
         },
       )
     ]);
+  }
+
+  List<Widget> amer(List<Post> posts){
+    List<Widget> mohamed=[];
+    for(var item in posts){
+    mohamed.add(
+
+        Container(
+          height:10,
+          child: Text(item.userId.toString()),)) ;
+    }
+  return mohamed;
   }
 
   Widget _noData(BuildContext context) {

@@ -11,7 +11,8 @@ class _HomePageState extends State<HomePage>{
   Api api=Api();
   @override
   Widget build(BuildContext context) {
-   api.fetchingData();
+   //api.getCommentRow();
+   api.getCommentNames();
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
