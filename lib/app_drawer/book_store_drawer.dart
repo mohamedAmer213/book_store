@@ -19,6 +19,7 @@ class _BookStoreDrawerState extends State<BookStoreDrawer> {
     "الاقسام",
     "حول التطبيق",
     "الاعدادات",
+    "  تسجيل الدخول",
     "تسجيل الخروج",
     "الاتصال ببيانات وهمية",
   ];
@@ -52,9 +53,12 @@ class _BookStoreDrawerState extends State<BookStoreDrawer> {
             Icon(
               Icons.exit_to_app,
             ), () {
+          Navigator.of(context).pushNamed('login');
+        }),
+        _buildListTileDrawerItem(drawerTitles, 5, Icon(Icons.input), (){
           Navigator.of(context).pushNamed('signOut');
         }),
-        _buildListTileDrawerItem(drawerTitles, 5, Icon(Icons.network_wifi), (){
+        _buildListTileDrawerItem(drawerTitles, 6, Icon(Icons.network_wifi), (){
           Navigator.of(context).pushNamed('api_call');
         })
       ]),

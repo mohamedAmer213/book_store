@@ -111,7 +111,7 @@ Future<List<Photo>> fetchingPhoto() async{
       commentsList.add(comment);
     }
     for (var item in commentsList) {
-      print(item.id);
+//      print(item.id);
     }
     return commentsList;
   }
@@ -124,7 +124,7 @@ Future<List<Photo>> fetchingPhoto() async{
     for(int i=0;i<jsonBody.length;i++){
       listSearch.add(jsonBody[i]['name']);
     }
-    print(listSearch);
+//    print(listSearch);
   }
 
   Future<List<String>> getCommentNames() async{

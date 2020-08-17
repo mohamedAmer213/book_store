@@ -13,6 +13,8 @@ import 'package:phone_store/pages/home_page.dart';
 import 'package:phone_store/search/advanced_search.dart';
 import 'package:phone_store/models/post.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+import 'choosing_country.dart';
 
 class UserAccountDrawer extends StatefulWidget {
   @override
@@ -20,12 +22,26 @@ class UserAccountDrawer extends StatefulWidget {
 }
 
 class _UserAccountDrawerState extends State<UserAccountDrawer> {
+/*
+* for making us sure about sharedPreferences variables we can
+* invoke the getPref Method from choosing_country file .... let's do this...But wait a second
+* we can not invoke async Methods by taking object from classes...don't forget that ua_amer*/
   Api api=Api();
-
   final myStyle =
       TextStyle(color: Color(0xff2C343D), fontWeight: FontWeight.bold);
 
   //final myStyle = TextStyle(color: Color(0xff4E7F09));
+
+  getPref() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+     pref.setString('country','Egypt');
+   print(pref.getString('country'));
+  }
+
+  void initState(){
+   getPref();
+  super.initState();
+}
 
   @override
   Widget build(BuildContext context)  {

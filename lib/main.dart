@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:phone_store/api_folder/app_api.dart';
 import 'package:phone_store/drawer_routing_pages/api_test.dart';
+import 'package:phone_store/drawer_routing_pages/login.dart';
 import 'package:phone_store/pages/home_page.dart';
 import 'package:phone_store/phone_details/iphone_details.dart';
 import 'package:phone_store/phone_details/nokia_details.dart';
@@ -14,12 +15,16 @@ import './drawer_routing_pages/sign_out.dart';
 import './utilities.dart';
 import './phone_types/samsung.dart';
 import './phone_details/samsung_details.dart';
+import './pages/onboarding.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import './pages/choosing_country.dart';
+import './drawer_routing_pages/advanced_login.dart';
 void main() {
   runApp(PhoneStore());
 }
 
 class PhoneStore extends StatelessWidget {
-
+  OnBoarding onBoarding =OnBoarding();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,11 +42,13 @@ class PhoneStore extends StatelessWidget {
         'samsung_details':(context){return SamsungDetails();},
         'nokia_details':(context){return NokiaDetails();},
         'iphone_details':(context){return IphoneDetails();},
+        'login':(context){return AdvancedLogin();},
         'api_call':(context){return ApiTest();},
 
       } ,
       theme:ThemeData(primarySwatch: Colors.red,fontFamily: 'Ubuntu'),
-      home: UserAccountDrawer(),
+      //home: UserAccountDrawer(),
+    home: ChoosingCountry(),
     );
   }
 }
