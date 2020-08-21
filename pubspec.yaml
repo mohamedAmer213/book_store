@@ -72,32 +72,16 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-     - family: Ubuntu
-       fonts:
-         - asset: fonts/Ubuntu-B.ttf
-         - asset: fonts/Ubuntu-BI.ttf
-           style: italic
-#    - family: Ubuntu
+    - family: OpenSans
+      fonts:
+        - asset: fonts/OpenSans-Regular.ttf
+        - asset: fonts/OpenSans-Italic.ttf
+          style: italic
+#    - family: RobotoMono
 #      fonts:
-#        - asset: packages/ubuntu_font_flutter/Ubuntu-B.ttf
-#          weight: 300
-#        - asset: packages/ubuntu_font_flutter/Ubuntu-R.ttf
-#        - asset: packages/ubuntu_font_flutter/Ubuntu-RI.ttf
-#          style: italic
-#        - asset: packages/ubuntu_font_flutter/Ubuntu-BI.ttf
-#          weight: 300
-#          style: italic
-#        - asset: packages/ubuntu_font_flutter/Ubuntu-L.ttf
-#          weight: 300
-#        - asset: packages/ubuntu_font_flutter/Ubuntu-LI.ttf
-#          weight: 300
-#          style: italic
-#        - asset: packages/ubuntu_font_flutter/Ubuntu-M.ttf
-#          weight: 300
-#        - asset: packages/ubuntu_font_flutter/Ubuntu-MI.ttf
-#          weight: 300
-#          style: italic
-
+#        - asset: fonts/RobotoMono-Regular.ttf
+#        - asset: fonts/RobotoMono-Bold.ttf
+#          weight: 700
 
 #     - family: Trajan Pro
 #       fonts:
